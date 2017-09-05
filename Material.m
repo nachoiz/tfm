@@ -1,6 +1,6 @@
 classdef Material
     %UNTITLED10 Summary of this class goes here
-    %   Detailed explanation goes here
+    %   migue migue migue
     
     properties
         kappa = 0.9107
