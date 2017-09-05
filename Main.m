@@ -18,5 +18,5 @@ element = element.computeRHS(nunkn,mesh.nelem,triangleLinear.nnode,bc,dof.idx);
 
 %% Postprocess
 
-a = 2;
+a = 1;
 end
