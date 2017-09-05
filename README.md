@@ -1,6 +1,6 @@
 # TFM - Finite Element Method
 #**********************************************
 Professor:  Àlex Ferrer Ferré
-Students:   Nacho Izquierdo Pérez
+Students:   Nacho Izquierdo Pérez 	
             Raül Rubio Serrano
 #**********************************************
