@@ -8,6 +8,8 @@ mesh = Mesh();
 bc = BC(nunkn);
 
 %% Process
+%
+%
 geometry = Geometry(mesh);
 triangleLinear = Triangle_Linear();
 dof = DOF(triangleLinear,mesh.connec,nunkn,mesh.npnod,bc.displacements);
