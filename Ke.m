@@ -6,10 +6,10 @@ classdef Ke<Matrix_Elemental
     end
     
     methods
-        function obj = Ke(nstre,nunkn,nelem,nnode,geometry)
+        function obj = Ke(nstre,nunkn,nelem,geometry)
             
             % Strain-displacement matrix
-            Bmat = B(nstre,nunkn,nelem,nnode,geometry.cartDeriv);
+            Bmat = B(nstre,nunkn,nelem,geometry.nnode,geometry.cartDeriv);
             
             % Elastic matrix
             Cmat = C(nstre,nelem);

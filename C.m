@@ -7,9 +7,9 @@ classdef C<Matrix_Local
     
     methods
         function obj = C(nstre,nelem)
-                material = Material();
-                epoiss = (material.kappa - material.mu)./(material.kappa + material.mu);
-                eyoung = 4*material.kappa.*material.mu./(material.kappa + material.mu);
+                material = Material_Elastic();
+                epoiss = (material.matProp.kappa - material.matProp.mu)./(material.matProp.kappa + material.matProp.mu);
+                eyoung = 4*material.matProp.kappa.*material.matProp.mu./(material.matProp.kappa + material.matProp.mu);
                 obj.value = zeros(nstre,nstre,nelem);
                 c1 = eyoung./(1-epoiss.^2);
                 obj.value(1,1,:) = c1;

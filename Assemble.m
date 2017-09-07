@@ -7,16 +7,28 @@ classdef Assemble
     end
     
     methods (Static)
-        function glob_mat = get_glob_mat(element,nnode,nunkn,dof)
+        function [LHS,RHS] = Compute(element,nnode,nunkn,dof)
             
-           glob_mat = sparse(dof.nndof,dof.nndof);
-           
-           for i = 1:nnode*nunkn
+            % Compute LHS
+            
+            LHS = sparse(dof.ndof,dof.ndof);
+            
+            for i = 1:nnode*nunkn
                 for j = 1:nnode*nunkn
-                    vestiff = squeeze(element(i,j,:));
-                    glob_mat = glob_mat + sparse(dof.idx(i,:),dof.idx(j,:),vestiff,dof.nndof,dof.nndof);   
+                    a = squeeze(element.LHS(i,j,:));
+                    LHS = LHS + sparse(dof.idx(i,:),dof.idx(j,:),a,dof.ndof,dof.ndof);
                 end
-           end
+            end
+            
+            % Compute RHS
+            
+            RHS = zeros(1,dof.ndof);
+            for i = 1:length(dof.idx(:,1)) % nnode*nunkn
+               b = squeeze(element.RHS(i,1,:));
+               ind = dof.idx(i,:);
+               RHS(ind) = b; 
+            end
+            
         end
     end
     
